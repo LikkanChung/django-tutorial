@@ -1,15 +1,17 @@
-<html>
-  <head>
+{% extends 'blog/base.html' %}
 
-  </head>
-  <body>
-    <h1>My Blogs</h1>
-    <ul>
-      {% for post in posts %}
-        <li>
-          {{ post }}
-        </li>
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+{% block content %}
+  {% for post in posts %}
+    <li>
+      <a href="{% url 'post_detail' pk=post.pk %}">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">{{post.title}}</div>
+            <div class="card-subtitle mb-2 text-muted">{{post.published_date}}</div>
+            <div class="card-text">{{post.text|linebreaksbr}}</div>
+          </div>
+        </div>
+      </a>
+    </li>
+  {% endfor %}
+{% endblock %}

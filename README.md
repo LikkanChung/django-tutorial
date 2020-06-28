@@ -172,3 +172,8 @@ A QuerySet is a list of objects of a given model.
 * Template tags:
   * {{ posts}}
   * Basically liquid tags, as far as I can tell.
+
+## Static files: CSS and images:
+* Create a `static` directory inside the blog app
+* Create `css` directory inside `static`, with a file, `blog.css`
+* Add `{% load static %}` to load the static files and add a `<link>` as usual with `href='{% static 'css/blog.css'%}'`
